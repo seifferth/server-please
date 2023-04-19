@@ -26,10 +26,12 @@ jobs:
             cat /root/.ssh/authorized_keys
             /usr/sbin/sshd
             OUTEREOF
+            bash <<EOF
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:22 \
                 serveo.net
+            EOF
 #on: [push]
 #jobs:
 #  Test-Connection:

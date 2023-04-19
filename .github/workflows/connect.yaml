@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            sudo bash <<'OUTEREOF' | sudo tee /var/log/github-action.log
+            sudo bash <<'OUTEREOF' | sudo tee /var/log/server-setup.log
             echo $$ >/var/run/main_github_action_script.pid
             mv /etc/ssh /etc/ssh.orig; mkdir /etc/ssh
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ed25519_key
@@ -23,16 +23,13 @@ jobs:
             cat <<EOF >/root/.ssh/authorized_keys
             ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5vgyCeBQyNGBix9biZG3SAF1hzHMs8FD25YsWKSfPb frankseifferth@posteo.net
             EOF
-            ls -Al /root
-            ls -Al /root/.ssh
             cat /root/.ssh/authorized_keys
             /usr/sbin/sshd
-            ls -Al /var/log/
+            OUTEREOF
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:22 \
                 serveo.net
-            OUTEREOF
 #on: [push]
 #jobs:
 #  Test-Connection:

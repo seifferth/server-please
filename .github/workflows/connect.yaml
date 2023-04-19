@@ -9,5 +9,9 @@ jobs:
             pwd
             whoami
             which apt
-            which ping && ping -c2 tilde.club
-            which nc && timeout 5 nc tilde.club 22
+            echo "$PRIVATE_KEY" > priv.key.echo
+            printf "$PRIVATE_KEY" > priv.key.printf
+            tail -n1 priv.key.*
+            md5sum priv.key.*
+            which ping && ping -c2 tilde.club || true
+            which nc && timeout 5 nc tilde.club 22 || true

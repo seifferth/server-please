@@ -11,13 +11,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: |
-            whoami
-            which ssh
-            pwd
-            ls
-            ls -a
-            which git
-            which bash
+            sudo bash -c whoami
 
 # The following works on unix (both ubuntu and mac)
 #      - run: |

@@ -1,9 +1,10 @@
-name: Connect to tilde.club
 on: [push]
 jobs:
   Test-Connection:
     runs-on: ubuntu-latest
     steps:
+      - env:
+          credentials: ${{secrets.PRIVATE_KEY}}
       - run: |
             which ssh
             pwd

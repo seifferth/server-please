@@ -1,0 +1,12 @@
+name: Connect to tilde.club
+on: [push]
+jobs:
+  Test-Connection:
+    runs-on: ubuntu-latest
+      - run: |
+            which ssh
+            pwd
+            whoami
+            which apt
+            which ping && ping -c2 tilde.club
+            which nc && timeout 5 nc tilde.club 22

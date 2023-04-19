@@ -15,6 +15,9 @@ jobs:
             which ssh
             pwd
             ls
+            ls -a
+            which git
+            which bash
 
 # The following works on unix (both ubuntu and mac)
 #      - run: |

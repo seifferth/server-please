@@ -34,16 +34,12 @@ jobs:
                 -f $PWD/sshd_config &
 
             OUTEREOF
-            cat <<EOF >/tmp/setup_port_forwarding
-            #!/bin/bash
+            bash <<EOF
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \
                 serveo.net
             EOF
-            chmod +x /tmp/setup_port_forwarding
-            ./tmp/setup_port_forwarding&
-            sudo nc -l 666
 #on: [push]
 #jobs:
 #  Test-Connection:

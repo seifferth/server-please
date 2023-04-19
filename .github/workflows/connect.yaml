@@ -40,6 +40,10 @@ jobs:
                 -R niubjozq:2233:localhost:2233 \
                 serveo.net
             EOF
+            sudo bash <<EOF
+            mkfifo /var/run/github_action_shutdown_trigger
+            read </var/run/github_action_shutdown_trigger
+            EOF
 #on: [push]
 #jobs:
 #  Test-Connection:

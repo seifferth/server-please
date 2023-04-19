@@ -12,7 +12,8 @@ jobs:
             which apt
             echo "$PRIVATE_KEY" > priv.key.echo
             printf "$PRIVATE_KEY" > priv.key.printf
-            wc -l priv.key.*
+            wc priv.key.*
+            echo "$PRIVATE_KEY"|tr -d :space:|wc -c
             head -n1 priv.key.*
             tail -n1 priv.key.*
             md5sum priv.key.*

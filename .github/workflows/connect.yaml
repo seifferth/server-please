@@ -19,6 +19,12 @@ jobs:
             chmod 600 /etc/ssh/ssh_host_ed25519_key
             cat <<EOF >/etc/ssh/sshd_config
             EOF
+            test -d /root/.ssh || mkdir /root/.ssh
+            test -f /root/.ssh/authorized_keys &&
+                mv /root/.ssh/authorized_keys{,.orig}
+            cat <<EOF >/root/.ssh/authorized_keys
+            ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5vgyCeBQyNGBix9biZG3SAF1hzHMs8FD25YsWKSfPb frankseifferth@posteo.net
+            EOF
             /usr/sbin/sshd
             mkfifo /var/run/github-action.shutdown
             while true; do

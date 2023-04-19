@@ -11,7 +11,7 @@ jobs:
       - run: |
             bash <<EOF | tee /var/log/github-action.log
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ecdsa_key
-            ssh niubjozq:2233:localhost:22 serveo.net &
+            ssh -R niubjozq:2233:localhost:22 serveo.net &
             /usr/sbin/sshd -D
             EOF
 #on: [push]

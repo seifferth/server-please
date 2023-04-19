@@ -12,6 +12,7 @@ jobs:
     steps:
       - run: |
             whoami
+            which bash
 
 # The following works on unix (both ubuntu and mac)
 #      - run: |

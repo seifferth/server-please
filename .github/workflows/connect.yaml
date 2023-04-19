@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: |
-            sudo bash -c whoami
+            whoami
 
 # The following works on unix (both ubuntu and mac)
 #      - run: |

@@ -11,8 +11,8 @@ jobs:
       - run: |
             sudo bash <<'OUTEREOF'
 
-            mkdir /etc/possibly_second_ssh
-            cd /etc/possibly_second_ssh
+            mkdir /etc/possibly_second_sshd
+            cd /etc/possibly_second_sshd
             echo "${{secrets.PRIVATE_KEY}}" >ssh_host_ed25519_key
             chmod 600 ssh_host_ed25519_key
             cat <<EOF >sshd_config
@@ -26,14 +26,12 @@ jobs:
             dGhAcG9zdGVvLm5ldAo=
             EOF
 
-            /usr/sbin/sshd -D -e -p 2233 \
+            /usr/sbin/sshd -p 2233 \
                 -h $PWD/ssh_host_ed25519_key \
-                -f $PWD/sshd_config \
-                >/var/log/possibly-second-sshd.log &
+                -f $PWD/sshd_config &
 
             OUTEREOF
             bash <<EOF
-            echo $$ | sudo tee /var/run/github_action_job.pid
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \

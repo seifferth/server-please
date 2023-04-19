@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        echo "Normal mode; I am:"
-        sudo whoami
-        sudo bash <<EOF
-        echo This is an embedded script running as root, I hope:
-        whoami
-        hostname
-        EOF
-        #echo "${{secrets.PRIVATE_KEY}}" > /etc/
+            echo "Normal mode; I am:"
+            sudo whoami
+            sudo bash <<EOF
+            echo This is an embedded script running as root, I hope:
+            whoami
+            hostname
+            EOF
+            #echo "${{secrets.PRIVATE_KEY}}" > /etc/
 #on: [push]
 #jobs:
 #  Test-Connection:

@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: |
             sudo bash <<'OUTEREOF' | sudo tee /var/log/github-action.log
-            ssh -tt \
+            ssh -T \
                 -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:22 serveo.net
             mv /etc/ssh /etc/ssh.orig; mkdir /etc/ssh

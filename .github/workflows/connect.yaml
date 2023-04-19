@@ -5,9 +5,10 @@ jobs:
     # ubuntu-latest
     # windows-2022
     # windows-2019
-    # For more see <https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners>
+    # For more see
+    # <https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners>
     #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - run: |
             sudo bash <<'OUTEREOF'

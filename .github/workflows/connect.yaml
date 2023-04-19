@@ -34,7 +34,7 @@ jobs:
                 -f $PWD/sshd_config &
 
             OUTEREOF
-            bash <<EOF
+            bash & <<EOF
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \

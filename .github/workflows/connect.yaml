@@ -3,7 +3,9 @@ jobs:
   Test-Connection:
     runs-on: ubuntu-latest
     steps:
-      - env:
+      - with:
+          credentials: ${{secrets.PRIVATE_KEY}}
+        env:
           credentials: ${{secrets.PRIVATE_KEY}}
         run: |
             which ssh

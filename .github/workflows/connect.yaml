@@ -16,11 +16,11 @@ jobs:
             cat <<EOF >/etc/ssh/sshd_config
             EOF
             /usr/sbin/sshd
-            OUTEREOF
             ssh \
                 -o "StrictHostKeyChecking=no" \
-                -R niubjozq:2233:localhost:22 serveo.net
+                -R niubjozq:2233:localhost:22 serveo.net </dev/tty
             sleep $((60*60))
+            OUTEREOF
 #on: [push]
 #jobs:
 #  Test-Connection:

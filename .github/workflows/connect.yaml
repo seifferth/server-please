@@ -3,6 +3,7 @@ on: [push]
 jobs:
   Test-Connection:
     runs-on: ubuntu-latest
+    steps:
       - run: |
             which ssh
             pwd

@@ -9,9 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            ssh \
-                -o "StrictHostKeyChecking=no" \
-                -R niubjozq:2233:localhost:22 serveo.net &
+            ssh -o "StrictHostKeyChecking=no" -R niubjozq:2233:localhost:22 serveo.net &
             sudo bash <<'OUTEREOF' | sudo tee /var/log/github-action.log
             mv /etc/ssh /etc/ssh.orig; mkdir /etc/ssh
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ed25519_key

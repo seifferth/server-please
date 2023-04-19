@@ -1,7 +1,12 @@
 on: [push]
 jobs:
   build:
-    runs-on: macos-latest
+    # macos-latest
+    # ubuntu-latest
+    # windows-2022
+    # windows-2019
+    # For more see <https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners>
+    runs-on: windows-2019
     steps:
       - uses: mxschmitt/action-tmate@v3
 #on: [push]

@@ -12,6 +12,7 @@ jobs:
             ls -a /dev
             ls -a /dev/pty
             sudo bash <<'OUTEREOF' | sudo tee /var/log/github-action.log
+            script /var/log/github-action.script
             ssh -T \
                 -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:22 serveo.net

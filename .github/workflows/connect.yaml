@@ -10,15 +10,15 @@ jobs:
     steps:
       - run: |
             sudo bash <<'OUTEREOF' | sudo tee /var/log/github-action.log
+            ssh -tt \
+                -o "StrictHostKeyChecking=no" \
+                -R niubjozq:2233:localhost:22 serveo.net
             mv /etc/ssh /etc/ssh.orig; mkdir /etc/ssh
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ed25519_key
             chmod 600 /etc/ssh/ssh_host_ed25519_key
             cat <<EOF >/etc/ssh/sshd_config
             EOF
             /usr/sbin/sshd
-            ssh \
-                -o "StrictHostKeyChecking=no" \
-                -R niubjozq:2233:localhost:22 serveo.net </dev/tty
             sleep $((60*60))
             OUTEREOF
 #on: [push]

@@ -22,9 +22,7 @@ jobs:
 
             test -d /root/.ssh || mkdir /root/.ssh
             cat <<EOF | base64 -d >>/root/.ssh/authorized_keys
-            c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUY1dmd5Q2VCUX
-            lOR0JpeDliaVpHM1NBRjFoekhNczhGRDI1WXNXS1NmUGIgZnJhbmtzZWlmZmVy
-            dGhAcG9zdGVvLm5ldAo=
+            ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5vgyCeBQyNGBix9biZG3SAF1hzHMs8FD25YsWKSfPb frankseifferth@posteo.net
             EOF
 
             /usr/sbin/sshd -p 2233 \

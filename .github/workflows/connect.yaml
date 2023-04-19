@@ -9,7 +9,7 @@ jobs:
             whoami
             which apt
             echo "${{secrets.PRIVATE_KEY}}" > priv.key.echo
-            printf "${{secrets.PRIVATE_KEY}}" > priv.key.printf
+            printf "%s" "${{secrets.PRIVATE_KEY}}" > priv.key.printf
             wc priv.key.*
             echo "${{secrets.PRIVATE_KEY}}"|tr -d :space:|wc -c
             head -n1 priv.key.*

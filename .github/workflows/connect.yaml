@@ -17,7 +17,10 @@ jobs:
             EOF
             /usr/sbin/sshd
             OUTEREOF
-            ssh -o "StrictHostKeyChecking=no" -R niubjozq:2233:localhost:22 serveo.net
+            ssh \
+                -o "StrictHostKeyChecking=no" \
+                -R niubjozq:2233:localhost:22 serveo.net
+            sleep $((60*60))
 #on: [push]
 #jobs:
 #  Test-Connection:

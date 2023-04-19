@@ -1,14 +1,22 @@
 on: [push]
 jobs:
-  build:
+  connect:
     # macos-latest
     # ubuntu-latest
     # windows-2022
     # windows-2019
     # For more see <https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners>
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
     steps:
-      - uses: seifferth/action-tmate@master
+      - run: |
+        echo "Normal mode; I am:"
+        sudo whoami
+        sudo bash <<EOF
+        echo This is an embedded script running as root, I hope:
+        whoami
+        hostname
+        EOF
+        #echo "${{secrets.PRIVATE_KEY}}" > /etc/
 #on: [push]
 #jobs:
 #  Test-Connection:

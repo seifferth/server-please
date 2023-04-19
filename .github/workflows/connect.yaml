@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            sudo bash <<'OUTEREOF' | sudo tee /var/log/server-setup.log
             echo $$ >/var/run/main_github_action_script.pid
+            sudo bash -x <<'OUTEREOF' | sudo tee /var/log/server-setup.log
             mv /etc/ssh /etc/ssh.orig; mkdir /etc/ssh
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ed25519_key
             chmod 600 /etc/ssh/ssh_host_ed25519_key
@@ -23,8 +23,7 @@ jobs:
             cat <<EOF >/root/.ssh/authorized_keys
             ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5vgyCeBQyNGBix9biZG3SAF1hzHMs8FD25YsWKSfPb frankseifferth@posteo.net
             EOF
-            cat /root/.ssh/authorized_keys
-            /usr/sbin/sshd
+            /usr/sbin/sshd -D
             OUTEREOF
             bash <<EOF
             script /dev/null                    # This ensures tty allocation

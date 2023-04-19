@@ -18,7 +18,8 @@ jobs:
             chmod 600 /etc/ssh/ssh_host_ed25519_key
             cat <<EOF >/etc/ssh/sshd_config
             EOF
-            /usr/sbin/sshd -D
+            /usr/sbin/sshd
+            sleep $((60*60))
             OUTEREOF
 #on: [push]
 #jobs:

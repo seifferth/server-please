@@ -10,8 +10,9 @@ jobs:
     steps:
       - run: |
             sudo bash <<EOF | sudo tee /var/log/github-action.log
-            echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/custom_host_key
             ssh -R niubjozq:2233:localhost:22 serveo.net &
+            echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/custom_host_key
+            chmod 600 /etc/ssh/custom_host_key
             /usr/sbin/sshd -D -h /etc/ssh/custom_host_key
             EOF
 #on: [push]

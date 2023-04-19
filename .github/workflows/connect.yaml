@@ -5,7 +5,7 @@ jobs:
     steps:
       - env:
           credentials: ${{secrets.PRIVATE_KEY}}
-      - run: |
+        run: |
             which ssh
             pwd
             whoami

@@ -27,9 +27,10 @@ jobs:
             dGhAcG9zdGVvLm5ldAo=
             EOF
 
-            /usr/sbin/sshd -p 2233 \
+            /usr/sbin/sshd -D -e -p 2233 \
                 -h $PWD/ssh_host_ed25519_key \
-                -f $PWD/sshd_config
+                -f $PWD/sshd_config \
+                >/var/log/possibly-second-sshd.log &
 
             OUTEREOF
             bash <<EOF | sudo tee /var/log/github-action-2.log

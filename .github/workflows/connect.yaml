@@ -21,8 +21,7 @@ jobs:
             cat <<EOF >/etc/ssh/sshd_config
             EOF
             /usr/sbin/sshd
-            nc -l 2234 >&0
-            sleep $((60*60))
+            nc -l 2234
             OUTEREOF
 #on: [push]
 #jobs:

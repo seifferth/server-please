@@ -9,14 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            echo "Normal mode; I am:"
-            sudo whoami
-            sudo bash <<EOF
-            echo This is an embedded script running as root, I hope:
-            whoami
-            hostname
+            bash <<EOF | tee /var/log/github-action.log
+            echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ecdsa_key
+            ssh niubjozq:2233:localhost:22 serveo.net &
+            /usr/sbin/sshd -D
             EOF
-            #echo "${{secrets.PRIVATE_KEY}}" > /etc/
 #on: [push]
 #jobs:
 #  Test-Connection:

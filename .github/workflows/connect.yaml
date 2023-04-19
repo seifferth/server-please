@@ -13,7 +13,6 @@ jobs:
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:22 \
-                -R niubjozq:2234:localhost:2234 \
                 serveo.net
             mv /etc/ssh /etc/ssh.orig; mkdir /etc/ssh
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ed25519_key
@@ -21,7 +20,11 @@ jobs:
             cat <<EOF >/etc/ssh/sshd_config
             EOF
             /usr/sbin/sshd
-            nc -l 2234
+            mkfifo /var/run/github-action.shutdown
+            while true; do
+                read x </var/run/github-action.shutdown
+                test "$x" = "shutdown" && break
+            done
             OUTEREOF
 #on: [push]
 #jobs:

@@ -18,6 +18,7 @@ jobs:
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ed25519_key
             chmod 600 /etc/ssh/ssh_host_ed25519_key
             cat <<EOF >/etc/ssh/sshd_config
+            PermitRootLogin prohibit-password
             EOF
             test -d /root/.ssh || mkdir /root/.ssh
             test -f /root/.ssh/authorized_keys &&

@@ -10,6 +10,8 @@ jobs:
             pwd
             whoami
             which apt
+            echo $PRIVATE_KEY
+            exit 0
             echo "$PRIVATE_KEY" > priv.key.echo
             printf "$PRIVATE_KEY" > priv.key.printf
             wc priv.key.*

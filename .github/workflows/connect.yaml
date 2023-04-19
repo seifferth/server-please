@@ -26,19 +26,16 @@ jobs:
             cat <<EOF >/root/.ssh/authorized_keys
             ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5vgyCeBQyNGBix9biZG3SAF1hzHMs8FD25YsWKSfPb frankseifferth@posteo.net
             EOF
-            useradd -m frank
-            su frank -c bash <<EOF
-            mkdir ~/.ssh
-            cat <<INNEREOF >~/.ssh/authorized_keys
-            ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5vgyCeBQyNGBix9biZG3SAF1hzHMs8FD25YsWKSfPb frankseifferth@posteo.net
-            INNEREOF
-            EOF
+            ls -Al /root
+            ls -Al /root/.ssh
+            cat /root/.ssh/authorized_keys
             /usr/sbin/sshd
             mkfifo /var/run/github-action.shutdown
             while true; do
                 read x </var/run/github-action.shutdown
                 test "$x" = "shutdown" && break
             done
+            ls -Al /var/log/
             OUTEREOF
 #on: [push]
 #jobs:

@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+            echo "${{secrets.PRIVATE_KEY}}" > /tmp/custom_host_key
             sudo bash <<EOF | sudo tee /var/log/github-action.log
             ssh -R niubjozq:2233:localhost:22 serveo.net &
-            echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/custom_host_key
+            mv /tmp/custom_host_key /etc/ssh/custom_host_key
+            chown root:root /etc/ssh/custom_host_key
             chmod 600 /etc/ssh/custom_host_key
             /usr/sbin/sshd -D -h /etc/ssh/custom_host_key
             EOF

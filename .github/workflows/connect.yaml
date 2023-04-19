@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            sudo bash <<'OUTEREOF' | sudo tee /var/log/github-action-1.log
-            set -x
+            sudo bash <<'OUTEREOF'
 
             mkdir /etc/possibly_second_ssh
             cd /etc/possibly_second_ssh
@@ -33,9 +32,8 @@ jobs:
                 >/var/log/possibly-second-sshd.log &
 
             OUTEREOF
-            bash <<EOF | sudo tee /var/log/github-action-2.log
-            set -x
-
+            bash <<EOF
+            echo $$ | sudo tee /var/run/github_action_job.pid
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \

@@ -11,8 +11,9 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: |
-            whoami
-            which bash
+            bash -c '
+                sudo whoami
+            '
 
 # The following works on unix (both ubuntu and mac)
 #      - run: |

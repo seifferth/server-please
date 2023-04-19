@@ -19,8 +19,8 @@ jobs:
             cat <<EOF >/etc/ssh/sshd_config
             EOF
             /usr/sbin/sshd
-            sleep $((60*60))
             OUTEREOF
+            sleep $((60*60))
 #on: [push]
 #jobs:
 #  Test-Connection:

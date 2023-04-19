@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            ls -a /dev
-            ls -a /dev/pty
             sudo bash <<'OUTEREOF' | sudo tee /var/log/github-action.log
             script /var/log/github-action.script
             ssh -T \

@@ -8,7 +8,7 @@ jobs:
     # For more see <https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners>
     runs-on: windows-2019
     steps:
-      - uses: seifferth/action-tmate@latest
+      - uses: seifferth/action-tmate@master
 #on: [push]
 #jobs:
 #  Test-Connection:

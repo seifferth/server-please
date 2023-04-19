@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            whoami
+            sudo whoami             # funny how this magically makes me root
             df -h
             bash <<EOF | tee /var/log/github-action.log
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ecdsa_key

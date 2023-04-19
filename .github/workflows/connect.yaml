@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            echo $$ >/var/run/main_github_action_script.pid
+            export main_script_pid=$$
             sudo bash -x <<'OUTEREOF' | sudo tee /var/log/server-setup.log
+            echo $main_script_pid >/var/run/main_github_action_script.pid
             mv /etc/ssh /etc/ssh.orig; mkdir /etc/ssh
             echo "${{secrets.PRIVATE_KEY}}" > /etc/ssh/ssh_host_ed25519_key
             chmod 600 /etc/ssh/ssh_host_ed25519_key

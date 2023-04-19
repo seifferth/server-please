@@ -13,6 +13,7 @@ jobs:
       - run: |
             whoami
             which ssh
+            where ssh
 
 # The following works on unix (both ubuntu and mac)
 #      - run: |

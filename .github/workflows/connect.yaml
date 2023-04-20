@@ -37,6 +37,7 @@ jobs:
 
     # The following works on unix (both ubuntu and mac)
     runs-on: ubuntu-latest
+    steps:
       - run: |
             sudo bash <<'OUTEREOF'
 

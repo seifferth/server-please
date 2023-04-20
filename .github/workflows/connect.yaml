@@ -21,8 +21,8 @@ jobs:
             cat <<EOF >sshd_config
             PermitRootLogin prohibit-password
             AuthorizedKeysFile /etc/possibly_second_sshd/authorized_keys
-            Subsystem       sftp    /usr/lib/openssh/sftp-server
             EOF
+            grep sftp /etc/ssh/sshd_config|sed 's,^ *#*,,' >> sshd_config
 
             test -d /root/.ssh || mkdir /root/.ssh
             cat <<EOF | base64 -d > authorized_keys

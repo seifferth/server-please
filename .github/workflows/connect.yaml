@@ -30,8 +30,7 @@ jobs:
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
 
-            script /dev/null                    # This ensures tty allocation
-            ssh -o "StrictHostKeyChecking=no" \
+            ssh -tt -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \
                 serveo.net
             '

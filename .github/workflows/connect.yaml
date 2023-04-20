@@ -31,7 +31,7 @@ jobs:
             dGhAcG9zdGVvLm5ldAo=
             EOF
 
-            /usr/sbin/sshd -p 3322 \
+            /usr/sbin/sshd -p 2323 \
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
 
@@ -39,6 +39,6 @@ jobs:
             bash <<EOF
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
-                -R niubjozqd:3322:localhost:3322 \
+                -R niubjozqe:2323:localhost:2323 \
                 serveo.net
             EOF

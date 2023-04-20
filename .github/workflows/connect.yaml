@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: |
-            bash -c '
+            bash -xc '
                 mkdir possibly_second_sshd
                 cd possibly_second_sshd
                 echo "${{secrets.PRIVATE_KEY}}" >ssh_host_ed25519_key

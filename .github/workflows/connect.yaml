@@ -16,7 +16,7 @@ jobs:
                                    >possibly_second_sshd/ssh_host_ed25519_key'
             bash -xc '
             cd possibly_second_sshd
-            ls -l
+            ls -l ..
             cat <<EOF >sshd_config
             PermitRootLogin prohibit-password
             PasswordAuthentication no
@@ -31,9 +31,9 @@ jobs:
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
 
-            ssh -tt -o "StrictHostKeyChecking=no" \
+            ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \
-                serveo.net
+                serveo.net </dev/tty
             '
 
 # The following works on unix (both ubuntu and mac)

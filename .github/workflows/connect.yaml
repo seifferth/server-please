@@ -19,9 +19,9 @@ jobs:
             echo "${{secrets.PRIVATE_KEY}}" >ssh_host_ed25519_key
             chmod 600 ssh_host_ed25519_key
             cat <<EOF >sshd_config
-            Subsystem       sftp    /usr/lib/openssh/sftp-server
             PermitRootLogin prohibit-password
             AuthorizedKeysFile /etc/possibly_second_sshd/authorized_keys
+            Subsystem       sftp    /usr/lib/openssh/sftp-server
             EOF
 
             test -d /root/.ssh || mkdir /root/.ssh
@@ -31,7 +31,7 @@ jobs:
             dGhAcG9zdGVvLm5ldAo=
             EOF
 
-            /usr/sbin/sshd -p 2233 \
+            /usr/sbin/sshd -p 2234 \
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
 
@@ -39,6 +39,6 @@ jobs:
             bash <<EOF
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
-                -R niubjozqc:2233:localhost:2233 \
+                -R niubjozqc:2233:localhost:2234 \
                 serveo.net
             EOF

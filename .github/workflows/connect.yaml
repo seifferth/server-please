@@ -1,3 +1,4 @@
+# Date: Thu, 20 Apr 2023 14:09:48 -0500
 on: [push]
 jobs:
   connect:
@@ -34,7 +35,8 @@ jobs:
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
 
-            ssh -o "StrictHostKeyChecking=no" \
+            ssh -i /etc/possibly_second_sshd/authorized_keys \
+                -o "StrictHostKeyChecking=no" \
                 -R 2233:localhost:2233 \
                 niubjozq@serveo.net -N
             EOF

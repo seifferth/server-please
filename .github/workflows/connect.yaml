@@ -16,6 +16,7 @@ jobs:
                                    >possibly_second_sshd/ssh_host_ed25519_key'
             bash -xc '
             cd possibly_second_sshd
+            ls -l
             cat <<EOF >sshd_config
             PermitRootLogin prohibit-password
             PasswordAuthentication no

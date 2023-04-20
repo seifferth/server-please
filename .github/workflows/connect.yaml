@@ -34,7 +34,7 @@ jobs:
             bash -c '
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \
-                serveo.net
+                serveo.net </dev/tty
             '
 
 # The following works on unix (both ubuntu and mac)

@@ -11,10 +11,11 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: |
+            bash -xc 'mkdir possibly_second_sshd'
+            bash -c  'echo "${{secrets.PRIVATE_KEY}}" \
+                                   >possibly_second_sshd/ssh_host_ed25519_key'
             bash -xc '
-            mkdir possibly_second_sshd
             cd possibly_second_sshd
-            echo "${{secrets.PRIVATE_KEY}}" >ssh_host_ed25519_key
             cat <<EOF >sshd_config
             PermitRootLogin prohibit-password
             PasswordAuthentication no

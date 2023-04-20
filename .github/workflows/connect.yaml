@@ -39,6 +39,6 @@ jobs:
             bash <<EOF
             script /dev/null                    # This ensures tty allocation
             ssh -o "StrictHostKeyChecking=no" \
-                -R niubjozq:2233:localhost:2233 \
+                -R niubjozqb:2233:localhost:2233 \
                 serveo.net
             EOF

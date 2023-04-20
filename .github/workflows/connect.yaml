@@ -32,7 +32,7 @@ jobs:
             bash -c '
             ssh -o "StrictHostKeyChecking=no" \
                 -R niubjozq:2233:localhost:2233 \
-                serveo.net </dev/tty
+                serveo.net </dev/tty0
             '
 
 # The following works on unix (both ubuntu and mac)

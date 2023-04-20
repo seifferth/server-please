@@ -35,8 +35,6 @@ jobs:
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
 
-            OUTEREOF
-            bash <<EOF
             ssh -o "StrictHostKeyChecking=no" \
                 -R 2233:localhost:2233 \
                 niubjozq@serveo.net -N

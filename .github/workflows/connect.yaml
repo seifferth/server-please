@@ -31,7 +31,7 @@ jobs:
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
             '
-            ssh -o "StrictHostKeyChecking=no" -R niubjozq:2233:localhost:2233 serveo.net
+            bash -c 'ssh -o "StrictHostKeyChecking=no" -R niubjozq:2233:localhost:2233 serveo.net'
 
 # The following works on unix (both ubuntu and mac)
 #      - run: |

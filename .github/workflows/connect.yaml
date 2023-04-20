@@ -24,7 +24,6 @@ jobs:
             EOF
             grep sftp /etc/ssh/sshd_config|sed 's,^ *#*,,' >> sshd_config
 
-            test -d /root/.ssh || mkdir /root/.ssh
             cat <<EOF | base64 -d > authorized_keys
             c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUY1dmd5Q2VCUX
             lOR0JpeDliaVpHM1NBRjFoekhNczhGRDI1WXNXS1NmUGIgZnJhbmtzZWlmZmVy

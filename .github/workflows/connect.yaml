@@ -38,5 +38,5 @@ jobs:
             ssh -i /etc/possibly_second_sshd/authorized_keys \
                 -o "StrictHostKeyChecking=no" \
                 -R 2233:localhost:2233 \
-                niubjozq@serveo.net -N
+                niubjozq@localhost.run -N
             EOF

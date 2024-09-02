@@ -35,8 +35,10 @@ jobs:
                 -h $PWD/ssh_host_ed25519_key \
                 -f $PWD/sshd_config &
 
-            ssh -i /etc/possibly_second_sshd/authorized_keys \
-                -o "StrictHostKeyChecking=no" \
-                -R 2233:localhost:2233 \
-                niubjozq@serveo.net -N
+            #ssh -i /etc/possibly_second_sshd/authorized_keys \
+            #    -o "StrictHostKeyChecking=no" \
+            #    -R 2233:localhost:2233 \
+            #    niubjozq@serveo.net -N
+            curl -O https://pagekite.net/pk/pagekite.py
+            python3 pagekite.py 2233 niubjozq.pagekite.me
             EOF

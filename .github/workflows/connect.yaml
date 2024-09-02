@@ -14,7 +14,6 @@ jobs:
     steps:
       - run: |
             sudo bash <<'OUTEREOF'
-            sleep 60 && exit 0
 
             mkdir /etc/possibly_second_sshd
             cd /etc/possibly_second_sshd
@@ -39,5 +38,5 @@ jobs:
             ssh -i /etc/possibly_second_sshd/authorized_keys \
                 -o "StrictHostKeyChecking=no" \
                 -R 2233:localhost:2233 \
-                niubjozq@localhost.run -N
+                niubjozq@serveo.net -N
             EOF

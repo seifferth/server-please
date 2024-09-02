@@ -14,6 +14,7 @@ jobs:
     steps:
       - run: |
             sudo bash <<'OUTEREOF'
+            sleep 60 && exit 0
 
             mkdir /etc/possibly_second_sshd
             cd /etc/possibly_second_sshd

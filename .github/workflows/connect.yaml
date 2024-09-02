@@ -39,6 +39,7 @@ jobs:
             #    -o "StrictHostKeyChecking=no" \
             #    -R 2233:localhost:2233 \
             #    niubjozq@serveo.net -N
+            apt update && apt install -y python3
             curl -O https://pagekite.net/pk/pagekite.py
             python3 pagekite.py 2233 niubjozq.pagekite.me
             EOF
